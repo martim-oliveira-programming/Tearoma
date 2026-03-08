@@ -6,7 +6,7 @@
 
 using std::string;
 
-#define MAX_INPUT 20
+#define TEAROMA_MAX_INPUT 20
 
 enum GameState{
     QUIT = -1,

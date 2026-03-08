@@ -14,6 +14,21 @@ using std::string;
 using std::vector;
 using std::unordered_set;
 
+enum Builds{
+    Knight,
+    Tank,
+    Archer,
+    Mage,
+    Healer,
+    Summoner,
+    Assassin,
+    Heavenly_Restricted,
+    Ninja,
+    Balanced,
+};
+
+enum Gender{ Boy , Girl };
+
 class Player
 {
 private:
@@ -51,7 +66,7 @@ public:
     Player(string name, string hair, Gender gender);
     ~Player() = default;
     Player(Player&& other) = default;
-    Player& operator=(Player&& other) = default;
+    Player& operator=(Player&& other) = delete;
     //
     void player_will_be_heavenly_restricted();
     // Getters
@@ -77,8 +92,8 @@ public:
     const vector<Elemental_Affinity>& get_mana_elements() { return mana_elements; }
     const vector<DNA>& get_dna() { return dna; }
     const vector<unique_ptr<Npc>>& get_party_members() { return party_members; }
-    unique_ptr<Armour> get_armour_slot(int slot) { return move(armour_slots[slot]); }
-    unique_ptr<Weapon> get_weapon_slot(int slot) { return move(weapon_slots[slot]); }
+    unique_ptr<Armour> get_armour_slot(int slot) { return std::move(armour_slots[slot]); }
+    unique_ptr<Weapon> get_weapon_slot(int slot) { return std::move(weapon_slots[slot]); }
     const unique_ptr<Armour>& get_armour_slot_ref(int slot) { return armour_slots[slot]; }
     const unique_ptr<Weapon>& get_weapon_slot_ref(int slot) { return weapon_slots[slot]; }
     Stats get_stats() { return stats; }
@@ -96,32 +111,19 @@ public:
     void set_mana(int new_mana) { mana = new_mana; }
     void set_skill_points(int new_skill_points) { skill_points = new_skill_points; }
     void set_heavenly_restriction(bool new_heavenly_restriction) { heavenly_restriction = new_heavenly_restriction; }
-    void set_summons(vector<unique_ptr<Summon>> new_summons) { summons = new_summons; }
-    void set_abilities(vector<unique_ptr<Ability>> new_abilities) { abilities = new_abilities; }
-    void set_inventory_items(vector<unique_ptr<Item>> new_inventory_items) { inventory_items = new_inventory_items; }
+    void set_summons(vector<unique_ptr<Summon>> new_summons) { summons = std::move(new_summons); }
+    void set_abilities(vector<unique_ptr<Ability>> new_abilities) { abilities = std::move(new_abilities); }
+    void set_inventory_items(vector<unique_ptr<Item>> new_inventory_items) { inventory_items = std::move(new_inventory_items); }
     void set_aquired_items(unordered_set<int> new_aquired_items) { aquired_items = new_aquired_items; }
     void set_mana_elements(vector<Elemental_Affinity> new_mana_elements) { mana_elements = new_mana_elements; }
     void set_dna(vector<DNA> new_dna) { dna = new_dna; }
-    void set_party_members(vector<unique_ptr<Npc>> new_party_members) { party_members = new_party_members; }
-    void set_armour_slot(int slot, unique_ptr<Armour> new_armour) { armour_slots[slot] = move(new_armour); }
-    void set_weapon_slot(int slot, unique_ptr<Weapon> new_weapon) { weapon_slots[slot] = move(new_weapon); }
+    void set_party_members(vector<unique_ptr<Npc>> new_party_members) { party_members = std::move(new_party_members); }
+    void set_armour_slot(int slot, unique_ptr<Armour> new_armour) { armour_slots[slot] = std::move(new_armour); }
+    void set_weapon_slot(int slot, unique_ptr<Weapon> new_weapon) { weapon_slots[slot] = std::move(new_weapon); }
     void set_stats(Stats new_stats) { stats = new_stats; }
 };
 
-enum Builds{
-    Knight,
-    Tank,
-    Archer,
-    Mage,
-    Healer,
-    Summoner,
-    Assassin,
-    Heavenly_Restricted,
-    Ninja,
-    Balanced,
-};
 
-enum Gender{ Boy , Girl };
 
 Player create_player();
 

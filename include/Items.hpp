@@ -10,6 +10,10 @@
 using std::string;
 using std::vector;
 
+
+enum Slot { Head, Chest, Legs, Boots };
+enum Weapon_Slot { Main_Hand, Off_Hand , Both_Hands};
+
 class Item
 {
 private:
@@ -88,6 +92,7 @@ public:
     int get_weapon_defense_bonus() { return weapon_defense_bonus; }
     int get_speed_bonus() { return speed_bonus; }
     int get_stealth_bonus() { return stealth_bonus; }
+    Slot get_slot() { return slot; }
     // Setters
     void set_defense_bonus(int new_defense_bonus) { defense_bonus = new_defense_bonus; }
     void set_magic_defense_bonus(int new_magic_defense_bonus) { magic_defense_bonus = new_magic_defense_bonus; }
@@ -129,10 +134,5 @@ public:
     Story_Events get_use_event() { return use_event; }
 };
 
-
-
-
-enum Slot { Head, Chest, Legs, Boots };
-enum Weapon_Slot { Main_Hand, Off_Hand , Both_Hands};
 
 #endif

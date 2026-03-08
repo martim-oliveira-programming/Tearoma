@@ -64,4 +64,5 @@ GameState new_game(void){
 
 GameState continue_game(void){
     //TODO
+    return MENU;
 }

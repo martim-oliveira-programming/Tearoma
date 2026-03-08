@@ -12,6 +12,27 @@ using std::string;
 using std::vector;
 using std::unique_ptr;
 
+class Summon;
+
+struct Stats
+{
+    int max_hp;
+    int max_mana;
+    int attack;
+    int magic_attack;
+    int weapon_attack;
+    int defense;
+    int magic_defense;
+    int weapon_defense;
+    int speed;
+    int stealth;
+    int preception;
+    bool weapon_user;
+    bool dual_wield;
+    bool magic_user;
+    int summon_capacity;
+};
+
 class Npc
 {
 protected:
@@ -48,8 +69,8 @@ public:
     
     // Setters
     void set_age(int new_age) { age = new_age; }
-    void set_abilities(vector<unique_ptr<Ability>> new_abilities) { abilities = new_abilities; }
-    void set_summons(vector<unique_ptr<Summon>> new_summons) { summons = new_summons; }
+    void set_abilities(vector<unique_ptr<Ability>> new_abilities) { abilities = std::move(new_abilities); }
+    void set_summons(vector<unique_ptr<Summon>> new_summons) { summons = std::move(new_summons); }
     void set_mana_elements(vector<Elemental_Affinity> new_mana_elements) { mana_elements = new_mana_elements; }
     void set_rank(Rank new_rank) { rank = new_rank; }
     void set_level(int new_level) { level = new_level; }
@@ -71,24 +92,7 @@ public:
 
 };
 
-struct Stats
-{
-    int max_hp;
-    int max_mana;
-    int attack;
-    int magic_attack;
-    int weapon_attack;
-    int defense;
-    int magic_defense;
-    int weapon_defense;
-    int speed;
-    int stealth;
-    int preception;
-    bool weapon_user;
-    bool dual_wield;
-    bool magic_user;
-    int summon_capacity;
-};
+
 
 
 #endif

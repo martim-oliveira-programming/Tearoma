@@ -35,6 +35,8 @@ int main(void){
 
                 break;
             }
+            case QUIT:
+                break;
         }
     }
 }

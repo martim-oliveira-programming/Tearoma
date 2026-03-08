@@ -9,6 +9,12 @@
 using std::string;
 using std::vector;
 
+enum Story_Progression { Prologue, Chapter1, Chapter2, Chapter3, Chapter4, Chapter5, Epilogue };
+
+enum Story_Events { None, Event1, Event2, Event3, Event4, Event5 };//TODO: Change to actual events
+
+enum Path_Choice {Initial, Dad, Mom};
+
 class Story
 {
 private:
@@ -30,10 +36,6 @@ public:
     void set_path(Path_Choice new_path) { path = new_path; }
 };
 
-enum Story_Progression { Prologue, Chapter1, Chapter2, Chapter3, Chapter4, Chapter5, Epilogue };
 
-enum Story_Events { None, Event1, Event2, Event3, Event4, Event5 };//TODO: Change to actual events
-
-enum Path_Choice {Initial, Dad, Mom};
 
 #endif
