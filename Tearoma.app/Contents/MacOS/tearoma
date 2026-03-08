@@ -1,0 +1,3 @@
+#!/bin/bash
+# Launcher for Tearoma Adventures backend in iTerm
+open -a iTerm "$(dirname "$0")/tearoma.bin"
