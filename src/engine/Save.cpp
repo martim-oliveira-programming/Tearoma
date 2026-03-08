@@ -3,6 +3,7 @@
 #include <vector>
 #include <stdio.h>
 #include <fstream>
+#include <filesystem>
 #include "Save.hpp"
 #include "../../json-develop/single_include/nlohmann/json.hpp"
 
@@ -11,13 +12,9 @@ using std::ifstream;
 using std::ofstream;
 using json = nlohmann::json;
 
+
 bool file_exists(const string &filename) {
-    FILE *file = fopen(filename.c_str(), "r");
-    if (file) {
-        fclose(file);
-        return true;
-    }
-    return false;
+    return std::filesystem::exists(filename);
 }
 
 // ── Serialization helpers ──

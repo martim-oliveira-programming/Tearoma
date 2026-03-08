@@ -5,6 +5,7 @@
 #include "Dialogue.hpp"
 #include "Menu.hpp"
 #include "Save.hpp"
+#include "Player.hpp"
 
 using std::string;
 
@@ -42,11 +43,11 @@ GameState menu_selection(void){
 }
 
 GameState new_game(void){
-    if(file_exists("save.dat")){
+    if(file_exists(SAVE_FILE)){
         int choice = ask(
             "A save file already exists. Do you want to overwrite it?", "Yes", "No");
         if (choice == 0){
-            delete_save("save.dat");
+            delete_save(SAVE_FILE);
             say(1, "Starting a new game...");
             return PLAYING;
         } else if (choice == 1){

@@ -1,9 +1,9 @@
 CXX      := g++
-CXXFLAGS := -std=c++17 -Wall -Wextra -g -I include -I json-develop/single_include
+CXXFLAGS := -std=c++17 -Wall -Wextra -g -I include -I src/engine -I json-develop/single_include
 
 TARGET   := Tearoma
 
-SRC_DIRS := src/engine src/systems src/ui
+SRC_DIRS := src/engine src/game src/systems src/ui
 SRCS     := $(foreach dir,$(SRC_DIRS),$(wildcard $(dir)/*.cpp))
 
 BUILD_DIR := build

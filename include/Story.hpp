@@ -22,6 +22,7 @@ private:
     vector<Story_Events> events_occurred;
     Path_Choice path;
 public:
+    Story() = default;
     Story(Story_Progression chapter, vector<Story_Events> events_occurred, Path_Choice path);
     ~Story() = default;
     //

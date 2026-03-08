@@ -14,6 +14,9 @@ using std::string;
 using std::vector;
 using std::unordered_set;
 
+#define SAVE_FILE "save.json"
+
+
 enum Builds{
     Knight,
     Tank,
@@ -32,10 +35,10 @@ enum Gender{ Boy , Girl };
 class Player
 {
 private:
-    const string name;
+    string name;
     string hair_color;
     int age;
-    const Gender gender;
+    Gender gender;
     int money;
     int goodness;
     Builds build;
@@ -66,7 +69,7 @@ public:
     Player(string name, string hair, Gender gender);
     ~Player() = default;
     Player(Player&& other) = default;
-    Player& operator=(Player&& other) = delete;
+    Player& operator=(Player&& other) = default;
     //
     void player_will_be_heavenly_restricted();
     // Getters

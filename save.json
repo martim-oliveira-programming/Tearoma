@@ -1,0 +1,63 @@
+{
+    "npcs": [],
+    "player": {
+        "ability_ids": [],
+        "age": 15,
+        "aquired_items": [],
+        "armour_slot_ids": [
+            -1,
+            -1,
+            -1,
+            -1
+        ],
+        "build": 9,
+        "dna": [
+            0
+        ],
+        "exp": 0,
+        "gender": 0,
+        "goodness": 0,
+        "hair_color": "Black",
+        "heavenly_restriction": false,
+        "hp": 1871750352,
+        "hunger": 0,
+        "inventory_item_ids": [],
+        "level": 1,
+        "mana": 1,
+        "mana_elements": [
+            0
+        ],
+        "money": 30,
+        "name": "Martim",
+        "party_member_ids": [],
+        "rank": 0,
+        "skill_points": 0,
+        "stats": {
+            "attack": 10,
+            "defense": 5,
+            "dual_wield": false,
+            "magic_attack": 5,
+            "magic_defense": 0,
+            "magic_user": true,
+            "max_hp": 100,
+            "max_mana": 50,
+            "preception": 5,
+            "speed": 5,
+            "stealth": 5,
+            "summon_capacity": 1,
+            "weapon_attack": 0,
+            "weapon_defense": 0,
+            "weapon_user": true
+        },
+        "summon_ids": [],
+        "weapon_slot_ids": [
+            -1,
+            -1
+        ]
+    },
+    "story": {
+        "chapter": 0,
+        "events_occurred": [],
+        "path": 0
+    }
+}

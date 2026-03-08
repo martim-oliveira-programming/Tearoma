@@ -14,7 +14,7 @@ void say(int wait_seconds, const string &message);
 
 template<typename... Options>
 int ask(const string &prompt, Options... opts) {
-    say(2, prompt);
+    say(0, prompt);
 
     std::vector<string> options{opts...};
     for (size_t i = 0; i < options.size(); ++i) {
