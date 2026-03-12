@@ -5,7 +5,8 @@
 #include <string>
 #include <vector>
 #include <stdio.h>
-#include "Story.hpp"
+
+enum Story_Events : int;
 
 using std::string;
 using std::vector;

@@ -33,10 +33,9 @@ int main(void){
                     save_game(SAVE_FILE, *player, *story, npcs);
                 }
                 else{
-                    if (!player) {
-                        player = create_player();
-                        story = Story(Prologue, vector<Story_Events>(), Initial);
-                    }
+                    // Create a placeholder player to load save data into
+                    player = Player("", "", Boy);
+                    story = Story(Prologue, vector<Story_Events>(), Initial);
 
                     bool loaded = load_game(SAVE_FILE, *player, *story, npcs);
 
@@ -45,10 +44,21 @@ int main(void){
                         player = create_player();
                         story = Story(Prologue, vector<Story_Events>(), Initial);
                         save_game(SAVE_FILE, *player, *story, npcs);
+
                     } else {
                         say(1, "Save file loaded successfully. Continuing your adventure...");
-                        say(1, "Welcome back, " + player->get_name() + "!");
-                        
+                    }
+                    state = confirm_load_save(*player, *story, npcs);
+                    if (state == MENU) {
+                        player.reset();
+                        story.reset();
+                        npcs.clear();
+                    }
+                    else {
+                        say(0, "Story Chapter: " + std::to_string(story->get_chapter()));
+                        say(0, "Starting game...");
+                        story->play_chapter(*player, npcs);
+
                     }
                 }
 

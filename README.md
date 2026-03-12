@@ -6,11 +6,8 @@
 
 ## 🗺️ Overview
 The story unfolds in the mysterious **Tearoma** region — a land accessible only through a sealed ancient portal, hidden from the modern world. On this side of the portal, **dormant abilities** within humans awaken, reshaping the balance of power between the two worlds.
-
-You will soon discover that **you are capable of crossing between them**. Will you be able to save everyone? **Do you even want to?**
-
 ---
 
 ## ⚔️ Your Adventure Awaits
-What adventures lie ahead?  
-That is **for you to decide**, as **your choices shape the entire story**.
+What adventures lie ahead?
+That is **for you to decide**, as **your choices shape the entire story!!**.

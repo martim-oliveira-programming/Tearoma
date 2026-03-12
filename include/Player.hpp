@@ -14,7 +14,6 @@ using std::string;
 using std::vector;
 using std::unordered_set;
 
-#define SAVE_FILE "save.json"
 
 
 enum Builds{
@@ -101,7 +100,9 @@ public:
     const unique_ptr<Weapon>& get_weapon_slot_ref(int slot) { return weapon_slots[slot]; }
     Stats get_stats() { return stats; }
     // Setters
+    void set_name(string new_name) { name = new_name; }
     void set_hair_color(string new_hair_color) { hair_color = new_hair_color; }
+    void set_gender(Gender new_gender) { gender = new_gender; }
     void set_age(int new_age) { age = new_age; }
     void set_money(int new_money) { money = new_money; }
     void set_goodness(int new_goodness) { goodness = new_goodness; }

@@ -10,6 +10,9 @@
 
 using std::string;
 
+#define SAVE_FILE "saves/save.json"
+
+
 bool file_exists(const string &filename);
 bool save_game(const string &filename, Player& player, Story& story, vector<Npc>& npcs);
 bool load_game(const string &filename, Player& player, Story& story, vector<Npc>& npcs);

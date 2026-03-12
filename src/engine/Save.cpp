@@ -5,7 +5,7 @@
 #include <fstream>
 #include <filesystem>
 #include "Save.hpp"
-#include "../../json-develop/single_include/nlohmann/json.hpp"
+#include <nlohmann/json.hpp>
 
 using std::string;
 using std::ifstream;
@@ -162,8 +162,11 @@ json npc_to_json(Npc& npc) {
 // ── Deserialization helpers ──
 
 void load_player_from_json(const json& j, Player& player) {
-    // Mutable scalar fields
+    // Identity fields
+    player.set_name(j["name"]);
     player.set_hair_color(j["hair_color"]);
+    player.set_gender(static_cast<Gender>(j["gender"].get<int>()));
+    // Mutable scalar fields
     player.set_age(j["age"]);
     player.set_money(j["money"]);
     player.set_goodness(j["goodness"]);
@@ -241,6 +244,7 @@ bool save_game(const string &filename, Player& player, Story& story, vector<Npc>
     for (auto& npc : npcs)
         save["npcs"].push_back(npc_to_json(npc));
 
+    std::filesystem::create_directories(std::filesystem::path(filename).parent_path());
     ofstream file(filename);
     if (!file.is_open()) return false;
 

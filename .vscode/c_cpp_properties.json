@@ -4,7 +4,8 @@
             "name": "macOS",
             "includePath": [
                 "${workspaceFolder}/include",
-                "${workspaceFolder}/**"
+                "${workspaceFolder}/src/engine",
+                "${workspaceFolder}/json-develop/single_include"
             ],
             "defines": [],
             "macFrameworkPath": [

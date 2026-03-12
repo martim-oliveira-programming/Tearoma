@@ -13,7 +13,7 @@ string get_input(string prompt){
     string choice;
 
     say(0,prompt);
-    std::cin >> choice;
+    getline(std::cin, choice);
     return choice;
 }
 
@@ -63,7 +63,32 @@ GameState new_game(void){
     }
 }
 
-GameState continue_game(void){
-    //TODO
-    return MENU;
+GameState confirm_load_save(Player& player, Story& story, vector<Npc>& npcs){
+    print_save_data(player, story);
+    int choice = ask(
+        "This file already exists. Do you want to load it?", "Yes", "No");
+        
+        if (choice == 0){
+        bool loaded = load_game(SAVE_FILE, player, story, npcs);
+
+        if (!loaded) {
+            say(1, "Failed to load save file. Returning to main menu...");
+            return MENU;
+        } else {
+            say(1, "Save file loaded successfully. Continuing your adventure...");
+            print_save_data(player, story);
+        }
+        return PLAYING;
+    } else if (choice == 1){
+        return MENU;
+    }
+    else{
+        say(1,"Invalid choice.\n");
+        return confirm_load_save(player, story, npcs);
+    }
+}
+
+void print_save_data(Player& player, Story& story){
+    say(1, "Name: " + player.get_name());
+    say(0, "Chapter: " + std::to_string(story.get_chapter()));
 }

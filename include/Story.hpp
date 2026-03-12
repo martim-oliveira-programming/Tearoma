@@ -5,13 +5,16 @@
 #include <string>
 #include <vector>
 #include <stdio.h>
+#include "Player.hpp"
+#include "Npcs.hpp"
+#include "Dialogue.hpp"
 
 using std::string;
 using std::vector;
 
 enum Story_Progression { Prologue, Chapter1, Chapter2, Chapter3, Chapter4, Chapter5, Epilogue };
 
-enum Story_Events { None, Event1, Event2, Event3, Event4, Event5 };//TODO: Change to actual events
+enum Story_Events : int { None, Event1, Event2, Event3, Event4, Event5 };//TODO: Change to actual events
 
 enum Path_Choice {Initial, Dad, Mom};
 
@@ -21,12 +24,16 @@ private:
     Story_Progression chapter;
     vector<Story_Events> events_occurred;
     Path_Choice path;
+
+    void chapter1(Player& player, Story story,vector<Npc>& npcs);
 public:
     Story() = default;
     Story(Story_Progression chapter, vector<Story_Events> events_occurred, Path_Choice path);
     ~Story() = default;
     //
     void advance_chapter();
+    //
+    void play_chapter(Player& player, vector<Npc>& npcs);
     // Getters
     Story_Progression get_chapter() { return chapter; }
     vector<Story_Events> get_events_occurred() { return events_occurred; }
