@@ -1,7 +1,6 @@
 # 🌌 Tearoma
 
 **Tearoma** is an RPG inspired by tabletop classics like *Dungeons & Dragons* and video games like *Skyrim* and *Pokémon*, where you forge your own path through story and choice. **Tearoma** has many heavily inspired concepts from famous sources: *Naruto*, *Bleach*,*HxH* and *JJK*.
-
 ---
 
 ## 🗺️ Overview
