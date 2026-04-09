@@ -23,7 +23,7 @@ GameState menu_selection(void){
         "Continue: Continue from last save\n"
         //"Commands: Show the game's commands\n"
         //"Options: Open the options menu\n"
-        "QuitGame: Leave the game\n\n", "NewGame", "Continue", "QuitGame");
+        "QuitGame: Leave the game\n", "NewGame", "Continue", "QuitGame\n");
 
     switch(command){
         case 0:{

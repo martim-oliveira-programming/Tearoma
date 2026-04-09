@@ -58,6 +58,7 @@ int main(void){
                         say(0, "Story Chapter: " + std::to_string(story->get_chapter()));
                         say(0, "Starting game...");
                         story->play_chapter(*player, npcs);
+                        save_game(SAVE_FILE, *player, *story, npcs);
 
                     }
                 }

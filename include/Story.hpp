@@ -12,7 +12,7 @@
 using std::string;
 using std::vector;
 
-enum Story_Progression { Prologue, Chapter1, Chapter2, Chapter3, Chapter4, Chapter5, Epilogue };
+enum Story_Progression { Prologue, TheAcademy, Chapter2, Chapter3, Chapter4, Chapter5, Epilogue };
 
 enum Story_Events : int { None, Event1, Event2, Event3, Event4, Event5 };//TODO: Change to actual events
 
@@ -25,7 +25,7 @@ private:
     vector<Story_Events> events_occurred;
     Path_Choice path;
 
-    void chapter1(Player& player, Story story,vector<Npc>& npcs);
+    void chapter1(Player& player,Story story);
 public:
     Story() = default;
     Story(Story_Progression chapter, vector<Story_Events> events_occurred, Path_Choice path);
